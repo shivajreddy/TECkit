@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "c:\Users\sreddy\.vscode\extensions\ms-python.python-2021.9.1246542782\pythonFiles\shell_exec.py", line 26, in <module>
+    subprocess.check_call(shell_args, stdout=sys.stdout, stderr=sys.stderr)
+  File "C:\Users\sreddy\Anaconda3\envs\condavenv1\lib\subprocess.py", line 373, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['C:/Users/sreddy/Anaconda3/Scripts/conda.exe', 'install', '--name', 'condavenv1', 'ipykernel', '-y', 'C:/Users/sreddy/AppData/Local/Temp/tmp-25104CR4tiooJD2kS.logpython', '-u']' returned non-zero exit status 2.

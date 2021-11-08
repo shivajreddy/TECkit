@@ -1,0 +1,66 @@
+<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:mu="clr-namespace:MyUtils.WPF;assembly=MyUtils"
+    Height="800" Width="700" MinWidth="600" MinHeight="700"
+    ShowInTaskbar="False" ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Center"
+    Title="Hello Word Window">
+    <!--xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"-->
+    <!--Width="800" Height="200"-->
+    
+    <Window.Resources>
+        <!--<Style x:Key ="IndexColumnStyle" TargetType=""-->
+    </Window.Resources>
+
+
+
+    <DockPanel>
+        <Grid Background="#CCCCCC" DockPanel.Dock="Bottom">
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Content="but1"></Button>
+                <Button Content="but2"></Button>
+            </WrapPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Background="Azure">
+                <TextBlock Text="Textblock1"/>
+                <TextBlock Text="text block 2"/>
+                <Button Margin="10 10 10 10" Content="RUN" BorderThickness="0" Background="Aqua" Foreground="Black">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Expander Header="How to Use this tool?" Foreground="White" Cursor="Help" Background="#999999" Margin="10 10 10 10">
+                    <TextBlock>
+                        This is the Help text.
+                    </TextBlock>
+                </Expander>
+                <Image x:Name="lognone" Stretch="Fill" Width="100" Height="50" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+                <Image x:Name="helpicon"  Stretch="Fill" Width="50" Height="50" />
+                <!--<Image Source="helpicon.png" Width="50" Height="50" Stretch="Fill" />-->
+                <TextBlock Text="This is text "/>
+            </StackPanel>
+
+            <TextBlock
+                Grid.Column="1"
+                Background="AntiqueWhite"
+                >
+                Rocket Mode &#x1F681; (Reload Required)
+            </TextBlock>
+        </Grid>
+
+    </DockPanel>
+</Window>
+
+

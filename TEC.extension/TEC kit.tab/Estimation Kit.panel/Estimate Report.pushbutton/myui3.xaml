@@ -1,0 +1,154 @@
+<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:h="clr-namespace:A.Namespace.Of.DragMoveBehavior"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:mu="clr-namespace:MyUtils.WPF;assembly=MyUtils"
+    xmlns:dxdove="http://schemas.devexpress.com/winfx/2008/xaml/docking/visualelements"
+    Height="918" Width="1256" MinWidth="600" MinHeight="700"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Center"
+    Title="EXPORT ESTIMATES - TECkit"
+    WindowStyle="None"
+    AllowsTransparency="True"
+    Background="Transparent"
+    ResizeMode="NoResize"
+    MouseDown="dragcommand"
+    >
+
+    <Window.Resources>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="30 30 10 10"/>
+        </Style>
+        <ObjectDataProvider x:Key="windowkey" MethodName="window_properties" />
+    </Window.Resources>
+
+
+    <Grid Width="1170" Height="812" Margin="0 0 0 0">
+
+
+        <Border Background="#252A34" Margin="-4,-2,-4,-4" Opacity="0.5" >
+            <Border.BitmapEffect >
+                <BlurBitmapEffect Radius="20" KernelType="Gaussian" />
+            </Border.BitmapEffect>
+        </Border>
+
+        <!--Header Grid Box-->
+        <Grid Background="Transparent" Width="1170" Height="70" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="343*"/>
+                <ColumnDefinition Width="47*"/>
+            </Grid.ColumnDefinitions>
+            <Border Width="1170" CornerRadius="30 30 0 0" Background="#08D9D6" Grid.ColumnSpan="2"/>
+            <Border Background="#252A34" Width="283" HorizontalAlignment="Left" CornerRadius="30 0 0 0"/>
+            <!--<Image Source="/TEC_White_Logo.png" Width="68" Height="45" HorizontalAlignment="Left" Margin="25,10,0,15" VerticalAlignment="Center" Opacity="0.5"/>-->
+
+            <Image x:Name="teclogomain" Width="68" Height="45" HorizontalAlignment="Left" Margin="20 -10 0 0" VerticalAlignment="Center" Opacity="0.5">
+                <Image.Source>
+                    <BitmapImage x:Name="teclogo" UriSource=""/>
+                </Image.Source>
+            </Image>
+            <Label Opacity="0.5" Content="Tools V0.1" Foreground="#FFFFFF" FontFamily="Garamond" FontSize="36" Width="238" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="98,0,693.333,0"/>
+            <Label Content="EXPORT ESTIMATES" FontFamily="Georgia" FontSize="36" FontWeight="Bold" Width="1170" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <!--Add an Event to this Button, that it closes the window on button click-->
+            <Button x:Name="closebutton" Click="myfunc" Content="x" Background="#252A34" Foreground="White" FontSize="18" FontWeight="SemiBold" FontFamily="SansSerif" Width="40" Height="40" HorizontalAlignment="Right" Margin="0,15,30,15"   Grid.Column="1">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="30"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+
+        <!--BODY DESIGN-->
+        <!--BODY Border and Background-->
+        <Border Background="#EAEAEA" Height="742" Margin="0 70 0 0"  CornerRadius="0 0 5 5"/>
+        <!--BODY Grid box-->
+        <Grid Background="Transparent" Margin="70,100,70,70" >
+            <DockPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+                    <StackPanel Height="642">
+
+
+                        <!--Row 1-->
+                        <Expander Header=" How to Use?" FontFamily="Georgia" FontSize="36">
+                            <!--How to Use Box-->
+                            <TextBlock FontFamily="Georgia" FontSize="22" FontWeight="Normal" Width="800" >
+                                    Step 1: Make sure to use a duplicate "Excel Template" file, and make sure this new excel template does not have data in it.
+                                    <LineBreak/>
+                                    Step 2: Click on "Browse Excel Template" and select the newly duplicated Excel file.
+                                    <LineBreak/>
+                                    Step 3: Hit "Run"
+                            </TextBlock>
+                        </Expander>
+                        <Separator Height="10"/>
+
+
+                        <!--Row 2-->
+                        <Grid Height="240" Margin="0">
+
+                            <Label Content="Create Estimate Report" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="36" FontFamily="Garamond" FontWeight="Bold" />
+                            <TextBlock x:Name="filepath_1" Width="500" Height="20" FontSize="14" FontWeight="Medium" FontFamily="Roboto" Background="Transparent" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="0 50 0 130" />
+                            <Button Click="BrowseButtonClick" Content="Browse Excel Template" FontFamily="Roboto" Foreground="White" FontSize="36" Width="424" Height="83" Background="#252A34"  Margin="0 50 0 0" >
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button Click="RunEstimateReportButtonClick" Content="RUN" FontFamily="Roboto" Foreground="White" FontSize="36" Width="155" Height="83" Background="#FF2E63" HorizontalAlignment="Right" Margin="0 50 60 0"   >
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Separator VerticalAlignment="Bottom"/>
+                        </Grid>
+
+                        <!--Row 3-->
+                        <Grid Height="340">
+
+                            <Label Content="Create Comparision Report" Width="1046" Height="50" HorizontalContentAlignment="Center" FontSize="36" FontFamily="Garamond" FontWeight="Bold" VerticalAlignment="Top" Margin="0 20 0 0"/>
+                            <TextBlock x:Name="filepath_2" Width="424" Height="20" FontSize="14" FontWeight="Medium" FontFamily="Roboto" Background="Transparent" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" TextAlignment="Center" Margin="0,100,0,220"  />
+                            <Button Click="BrowseButtonClick2" Content="Browse Excel File V1" FontFamily="Roboto" Foreground="White" FontSize="36" Width="424" Height="83" Background="#252A34" HorizontalAlignment="Left" Margin="0, 0,0,0"   Grid.Column="1">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <TextBlock x:Name="filepath_3" Height="20" FontSize="14" FontWeight="Medium" FontFamily="Roboto" Background="Transparent" TextWrapping="WrapWithOverflow" TextAlignment="Center" Margin="426,100,180,220"/>
+                            <Button Click="BrowseButtonClick3" Content="Browse Excel File V2" FontFamily="Roboto" Foreground="White" FontSize="36" Width="424" Height="83" Background="#252A34" HorizontalAlignment="Right" Margin="0, 0,180,0" 
+                                            Grid.Column="1">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button Click="ReportRunClick" Content="RUN" FontFamily="Roboto" Foreground="White" FontSize="36" Width="155" Height="83" Background="#FF2E63" HorizontalAlignment="Right" Margin="0, 0,10,0"   Grid.Column="1">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+            </DockPanel>
+        </Grid>
+
+
+
+    </Grid>
+
+
+</Window>
+
+
