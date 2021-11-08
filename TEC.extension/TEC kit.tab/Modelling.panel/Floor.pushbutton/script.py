@@ -1,4 +1,4 @@
-#Automate FLoor Boundaries - V2.1 - </ShivaReddy>
+#Automate FLoor Boundaries - V2.2 - </ShivaReddy>
 import os
 import clr
 
@@ -118,6 +118,7 @@ def getRoomsCreateFloors():
 			t.Commit()
 
 		print("Using [{}] as Floor Type, Created new Floors at Rooms: ".format(Element.Name.__get__(chosenFloorType)))
+
 		print("{}".format(finalCurrentViewRoomNames))
 
 getRoomsCreateFloors()
