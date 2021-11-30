@@ -154,6 +154,11 @@ def link_params(page):
 		if c.Definition.Name == "Eagle Project Issue Date":
 			g_id = get_global_param_id("ISSUE DATE")
 			c.AssociateWithGlobalParameter(g_id)
+			
+			# Lars added Eagle Office Address to the script xD
+		if c.Definition.Name == "Eagle Office Address":
+			g_id = get_global_param_id("EAGLE OFFICE ADDRESS")
+			c.AssociateWithGlobalParameter(g_id)
 
 	# t.Commit()
 
@@ -169,3 +174,4 @@ def link_all_sheets():
 	t.Commit()
 
 
+link_all_sheets()

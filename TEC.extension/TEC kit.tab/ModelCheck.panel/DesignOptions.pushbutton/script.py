@@ -58,7 +58,7 @@ for i in designOptions:
 
 # print("this is the file location", fileLocation)
 
-designOptionlocation = fileLocation + fileTitle +"DesignOptions.txt"
+designOptionlocation = fileLocation + fileTitle +"_DesignOptions.txt"
 # print("this is the designoption file location", designOptionlocation)
 
 
