@@ -5,7 +5,8 @@ import os
 # sys.path.append(r'C:\Users\sreddy\Anaconda3\envs\AutoEstimate\Lib\site-packages')
 
 import clr
-# import myfile
+import myfile
+import ExportEstimates
 
 # import pandas
 # import openpyxl
@@ -86,7 +87,8 @@ class MyWindow(Windows.Window):
 
 
     def RunEstimateReportButtonClick(self, sender, args):
-        myfile.foo()
+        # myfile.foo()
+        ExportEstimates.run()
         # print(excel_template_location[0])
 
     def ReportRunClick(self, sender, args):
